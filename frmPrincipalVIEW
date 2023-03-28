@@ -1,0 +1,78 @@
+package VIEW;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTextField;
+import javax.swing.JComboBox;
+import javax.swing.ComboBoxEditor;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.io.StringWriter;
+import java.awt.event.ActionEvent;
+
+public class frmPrincipalVIEW extends JFrame {
+
+
+
+	private JPanel contentPane;
+	private JTextField textField;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					frmPrincipalVIEW frame = new frmPrincipalVIEW();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public frmPrincipalVIEW() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Pediatra", "Clinico Geral", "Ortopedista"}));
+		comboBox.setBounds(10, 61, 85, 22);
+		contentPane.add(comboBox);
+		
+
+		
+
+
+		JLabel lblNewLabel = new JLabel("Escolha uma especialidade:");
+		lblNewLabel.setBounds(10, 36, 168, 14);
+		contentPane.add(lblNewLabel);
+		
+		JButton btnConfirmar = new JButton("Confirmar");
+		btnConfirmar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null, "Sua consulta foi marcada");
+
+			
+			}
+		});
+		btnConfirmar.setBounds(10, 125, 89, 23);
+		contentPane.add(btnConfirmar);
+		
+	}
+}
